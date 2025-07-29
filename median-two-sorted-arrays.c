@@ -3,12 +3,14 @@
 #include <math.h>
 
 double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {
+    
     if (nums1Size > nums2Size) {
         int* temp = nums1; nums1 = nums2; nums2 = temp;
         int tempSize = nums1Size; nums1Size = nums2Size; nums2Size = tempSize;
     }
     
     int left = 0, right = nums1Size;
+    
     while (left <= right) {
         int partitionX = (left + right) / 2;
         int partitionY = (nums1Size + nums2Size + 1) / 2 - partitionX;
@@ -32,9 +34,10 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     }
     
     return 0.0;
+    
 }
 
-int main() {
+int main(void) {
     int nums1[] = {1, 3};
     int nums2[] = {2};
     int nums1Size = sizeof(nums1) / sizeof(nums1[0]);
